@@ -46,9 +46,6 @@ class HomeController extends Controller
         ]);
     
         $user = auth()->user();
-        $transactions = Transaction::join('users as destinataires', 'transactions.destinataire_code', '=', 'destinataires.code')
-        ->select('transactions.*', 'destinataires.name as destinataire_name')
-        ->get();
     
         // Vérification du mot de passe de l'utilisateur
         if (!Hash::check($request->password, $user->password)) {
