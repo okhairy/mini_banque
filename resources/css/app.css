@@ -1,0 +1,8 @@
+.card-header {
+    background-color: #003366; /* Navy blue background */
+    color: white;
+}
+
+.card-body {
+    background-color: #f2f2f2; /* Light grey */
+}

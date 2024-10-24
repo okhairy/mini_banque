@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'account_number', // Ajout du champ account_number ici
+
     ];
 
     /**
@@ -42,4 +44,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    // Dans le modèle User
+// Dans le modèle User
+public static function findByAccountNumber($accountNumber)
+{
+    return self::where('account_number', $accountNumber)->first();
+}
+public function transactions()
+{
+    return $this->hasMany(Transaction::class);
+}
+public function destinataire()
+    {
+        return $this->belongsTo(User::class, 'destinataire_id');  // ou utilisez la clé étrangère appropriée
+    }
+
+
 }
